@@ -2,6 +2,8 @@ const express = require("express");
 
 const app = express();
 const mongoose = require("mongoose");
+require("dotenv/config");
+console.log("$$$$", process.env.DB_CONN);
 
 ///Middlewares, a function that executes when a certain route is hit. Good for authentication etc, can check the user each time they hit a route
 app.use("/posts", () => {
@@ -15,7 +17,9 @@ app.get("/", (req, res) => {
 
 //Connect to MongoDB using Mongoose
 mongoose.connect(
-  "mongodb+srv://so:so@cluster0.1hf7x.mongodb.net/testdb?retryWrites=true&w=majority",
+  process.env.DB_CONN,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+
   () => {
     console.log("Database connected");
   }
