@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
-
+const Post = require("../models/Post");
 ///ROUTES, responds to a request made to a specific address
 
 router.get("/", (req, res) => {
   res.send("postssaa");
 });
 
-router.get("/specific", (req, res) => {
-  res.send("Spec post");
+router.post("/", (req, res) => {
+  console.log(req.body);
 });
 
 module.exports = router;

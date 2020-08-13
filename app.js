@@ -7,6 +7,10 @@ require("dotenv/config");
 //Import Routes
 const postsRoute = require("./routes/posts");
 
+app.get("/", (req, res) => {
+  res.send("Home");
+});
+
 ///Middlewares, a function that executes when a certain route is hit. Good for authentication etc, can check the user each time they hit a route
 app.use("/posts", postsRoute);
 //Connect to MongoDB using Mongoose
