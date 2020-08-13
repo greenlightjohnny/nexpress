@@ -3,7 +3,10 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv/config");
+const bodyParser = require("body-parser");
 
+//bodyparser middleware, runs each time a route is hit, and converts response to json
+app.use(bodyParser.json());
 //Import Routes
 const postsRoute = require("./routes/posts");
 
